@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -22,6 +23,7 @@ public class MyUntitledTest {
         driver.quit();
     }
 
+    @Ignore
     @Test
     public void myUntitled() {
         driver.get("https://www.google.com/");
