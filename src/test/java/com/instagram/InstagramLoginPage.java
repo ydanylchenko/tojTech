@@ -11,14 +11,14 @@ public class InstagramLoginPage {
 
     InstagramLoginPage(WebDriver webDriver) {
         driver = webDriver;
-//        Bad option 1:
+//        BAD OPTION 1:
 //        try {
 //            Thread.sleep(2000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
 //        assertEquals("Login • Instagram", driver.getTitle());
-//        better option 2:
+//        BETTER OPTION 2:
         new WebDriverWait(driver, 5).until(ExpectedConditions.titleIs("Login • Instagram"));
     }
 }
