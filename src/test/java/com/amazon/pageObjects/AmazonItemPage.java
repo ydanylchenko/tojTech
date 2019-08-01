@@ -11,6 +11,7 @@ public class AmazonItemPage {
     AmazonItemPage(WebDriver webDriver) {
         driver = webDriver;
         new WebDriverWait(driver, 5).until(ExpectedConditions.titleContains("Amazon.com: "));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.titleContains(": Gateway"));
     }
 
     public String getItemPageTitle() {

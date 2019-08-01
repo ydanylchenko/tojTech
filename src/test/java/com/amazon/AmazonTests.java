@@ -45,9 +45,9 @@ public class AmazonTests {
         assertEquals("Title", "Amazon.com: " + itemName + ": Gateway", itemPage.getItemPageTitle());
         itemPage.clickAddToCartButton();
         AmazonCartPage cartPage = itemPage.clickViewCartButton();
-        assertTrue("Item name", false);
-        assertTrue("Item price", false);
-        assertTrue("Item quantity", false);
-
+        assertTrue("Item name", cartPage.isItemInCart(itemName));
+        assertTrue("Item name", cartPage.isItemInCartOption2(itemName));
+        assertEquals("Item price", "$31.99", cartPage.getItemPriceByName(itemName));
+        assertEquals("Item quantity", "1", cartPage.getItemQuantityByName(itemName));
     }
 }
