@@ -31,4 +31,11 @@ public class AmazonStartPage {
         driver.findElement(searchButtonLocator).click();
         return new AmazonSearchResultsPage(driver);
     }
+
+    public AmazonCareersPage clickCareersLink() {
+        By footerLocator = By.id("navFooter");
+        By careersLinkLocator = By.linkText("Careers");
+        driver.findElement(footerLocator).findElement(careersLinkLocator).click();
+        return new AmazonCareersPage(driver);
+    }
 }

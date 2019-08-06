@@ -36,7 +36,24 @@ public class AmazonCartPage {
         By itemNameLocator = By.xpath("//li//span[normalize-space(text())='" + itemName + "']");
         WebElement item = driver.findElement(itemNameLocator);
         WebElement itemRow = item.findElement(By.xpath("../../../../../../../../.."));
-        WebElement quantity = itemRow.findElement(By.className("quantity"));
+        WebElement quantity = itemRow.findElement(By.className("quantity")).findElement(By.className("a-dropdown-prompt"));
         return quantity.getText();
+    }
+
+    public AmazonCartPage deleteItemFromCart(String itemName) {
+        By amountOfItemsInCartLocator = By.id("nav-cart-count");
+        String amountOfItemsInCart = driver.findElement(amountOfItemsInCartLocator).getText();
+        By itemNameLocator = By.xpath("//li//span[normalize-space(text())='" + itemName + "']");
+        WebElement item = driver.findElement(itemNameLocator);
+        WebElement itemRow = item.findElement(By.xpath("../../../../../../../../.."));
+        itemRow.findElement(By.className("sc-action-delete")).findElement(By.tagName("input")).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBe(amountOfItemsInCartLocator, String.valueOf(Integer.parseInt(amountOfItemsInCart) - 1)));
+        return new AmazonCartPage(driver);
+    }
+
+    public String getCartSubtotal() {
+        By cartSubtotalLocator = By.id("sc-subtotal-amount-activecart");
+        WebElement cartSubtotal = driver.findElement(cartSubtotalLocator);
+        return cartSubtotal.getText();
     }
 }

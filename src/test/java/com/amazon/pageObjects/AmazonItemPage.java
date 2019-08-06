@@ -19,8 +19,11 @@ public class AmazonItemPage {
     }
 
     public void clickAddToCartButton() {
+        By amountOfItemsInCartLocator = By.id("nav-cart-count");
+        String amountOfItemsInCart = driver.findElement(amountOfItemsInCartLocator).getText();
         By addToCartButton = By.id("add-to-cart-button");
         driver.findElement(addToCartButton).click();
+        new WebDriverWait(driver, 5).until(ExpectedConditions.textToBe(amountOfItemsInCartLocator, String.valueOf(Integer.parseInt(amountOfItemsInCart) + 1)));
     }
 
     public AmazonCartPage clickViewCartButton() {
