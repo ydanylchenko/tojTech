@@ -57,12 +57,6 @@ public class AmazonTests {
     }
 
     @Test
-    public void careersPageTest_OLD() {
-        AmazonStartPage startPage = new AmazonStartPage(driver);
-        AmazonCareersPage careersPage = startPage.clickCareersLink();
-    }
-
-    @Test
     public void notExistingItemSearchTest() {
         AmazonStartPage startPage = new AmazonStartPage(driver);
         String itemName = "someNotExistingItemName";
@@ -87,5 +81,17 @@ public class AmazonTests {
         assertEquals("Cart subtotal", "$31.99", cartPage.getCartSubtotal());
         cartPage = cartPage.deleteItemFromCart(itemName);
         assertFalse("Item name", cartPage.isItemInCartOption2(itemName));
+    }
+
+    @Test
+    public void viewJobTest() {
+        AmazonStartPage startPage = new AmazonStartPage(driver);
+        AmazonCareersPage careersPage = startPage.clickCareersLink();
+        careersPage.setKeyword("Quality Assurance Engineer");
+        careersPage.setLocation("New York, NY");
+        AmazonCareersSearchResultsPage searchResultsPage = careersPage.clickSearchButton();
+        AmazonCareersJobPage jobPage = searchResultsPage.clickJobTitle("Quality Assurance Engineer");
+        assertEquals("Job title", "Quality Assurance Engineer", jobPage.getJobTitle());
+        assertTrue("Job id in meta data", jobPage.getJobMetaData().contains("834957"));
     }
 }
