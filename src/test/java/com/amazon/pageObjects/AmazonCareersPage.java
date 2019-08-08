@@ -20,9 +20,8 @@ public class AmazonCareersPage {
     }
 
     public void setLocation(String location) {
-        By searchArea = By.id("home-search");
-        By locationInputLocator = By.id("location-typeahead");
-        driver.findElement(searchArea).findElement(locationInputLocator).sendKeys(location);
+        By locationInputLocator = By.xpath("//div[@id='home-search']//input[@id='location-typeahead']");
+        driver.findElement(locationInputLocator).sendKeys(location);
     }
 
     public AmazonCareersSearchResultsPage clickSearchButton() {

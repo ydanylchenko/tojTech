@@ -15,6 +15,7 @@ public class AmazonCareersSearchResultsPage {
 
     public AmazonCareersJobPage clickJobTitle(String jobTitle) {
         By jobTitleLocator = By.xpath(String.format("//h3[.='%s']", jobTitle));
+        By jobTitleButtonLocatorOptionTwo = By.xpath("//h3[.='" + jobTitle + "']"); // //h3[.='QA Engineer']
         driver.findElement(jobTitleLocator).click();
         return new AmazonCareersJobPage(driver);
     }
