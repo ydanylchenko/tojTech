@@ -94,4 +94,11 @@ public class AmazonTests {
         assertEquals("Job title", "Quality Assurance Engineer", jobPage.getJobTitle());
         assertTrue("Job id in meta data", jobPage.getJobMetaData().contains("834957"));
     }
+
+    @Test
+    public void checkboxTest() {
+        AmazonStartPage startPage = new AmazonStartPage(driver);
+        AmazonSignInPage signInPage = startPage.clickSignInSecurelyButton();
+        signInPage.clickKeepMeSignedIn();
+    }
 }

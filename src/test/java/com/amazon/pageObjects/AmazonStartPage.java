@@ -38,4 +38,10 @@ public class AmazonStartPage {
         driver.findElement(footerLocator).findElement(careersLinkLocator).click();
         return new AmazonCareersPage(driver);
     }
+
+    public AmazonSignInPage clickSignInSecurelyButton() {
+        By signInSecurelyButtonLocator = By.xpath("//a[.='Sign in securely']");
+        driver.findElement(signInSecurelyButtonLocator).click();
+        return new AmazonSignInPage(driver);
+    }
 }
