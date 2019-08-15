@@ -101,4 +101,22 @@ public class AmazonTests {
         AmazonSignInPage signInPage = startPage.clickSignInSecurelyButton();
         signInPage.clickKeepMeSignedIn();
     }
+
+    @Test
+    public void checkBoxTests() {
+        AmazonStartPage startPage = new AmazonStartPage(driver);
+        String itemName = "searching for sylvie lee";
+        startPage.setSearchKeyword(itemName);
+        AmazonSearchResultsPage searchResultsPage = startPage.clickSearchButton();
+        searchResultsPage = searchResultsPage.clickAmazonPrimeCheckbox();
+        searchResultsPage = searchResultsPage.clickAvgCustomerReview(4);
+        assertTrue("Item in search results", searchResultsPage.isItemInSearchResults("Searching for Sylvie Lee: A Novel"));
+        assertFalse("Item in search results", searchResultsPage.isItemInSearchResults("botinki"));
+    }
+
+    @Test
+    public void departmentTest(){
+        AmazonStartPage startPage = new AmazonStartPage(driver);
+        startPage.selectDepartment("Baby");
+    }
 }

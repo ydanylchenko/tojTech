@@ -2,7 +2,9 @@ package com.amazon.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
@@ -43,5 +45,12 @@ public class AmazonStartPage {
         By signInSecurelyButtonLocator = By.xpath("//a[.='Sign in securely']");
         driver.findElement(signInSecurelyButtonLocator).click();
         return new AmazonSignInPage(driver);
+    }
+
+    public void selectDepartment(String departmentName) {
+        By departmentSelectLocator = By.id("searchDropdownBox");
+        WebElement departmentsElement = driver.findElement(departmentSelectLocator);
+        Select departments = new Select(departmentsElement);
+        departments.selectByVisibleText(departmentName);
     }
 }
