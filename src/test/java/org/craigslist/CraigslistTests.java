@@ -32,5 +32,9 @@ public class CraigslistTests {
         startPage.setSearchCriteria("toaster");
         CraigslistSearchResultsPage searchResultsPage = startPage.submit();
         searchResultsPage = searchResultsPage.selectArea("boston");
+        searchResultsPage = searchResultsPage.selectSubArea("metro west");
+        searchResultsPage = searchResultsPage.clickSearchTitlesOnly();
+        searchResultsPage = searchResultsPage.markSearchTitlesOnly(false);
+        searchResultsPage = searchResultsPage.markSearchTitlesOnly(true);
     }
 }
