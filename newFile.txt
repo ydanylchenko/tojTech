@@ -1,3 +1,7 @@
 some
 another
 text
+new
+text
+was
+added
