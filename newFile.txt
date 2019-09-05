@@ -1,5 +1,4 @@
 some
 another
-text
 new
 text
