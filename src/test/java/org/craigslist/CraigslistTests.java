@@ -28,8 +28,6 @@ public class CraigslistTests {
 
     @Test
     public void openSearchPage() {
-
-        System.out.println("test");
         CraigslistStartPage startPage = new CraigslistStartPage(driver);
         startPage.setSearchCriteria("toaster");
         CraigslistSearchResultsPage searchResultsPage = startPage.submit();
