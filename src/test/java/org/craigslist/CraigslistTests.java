@@ -36,9 +36,5 @@ public class CraigslistTests {
         searchResultsPage = searchResultsPage.clickSearchTitlesOnly();
         searchResultsPage = searchResultsPage.markSearchTitlesOnly(false);
         searchResultsPage = searchResultsPage.markSearchTitlesOnly(true);
-
-
-
-
     }
 }
